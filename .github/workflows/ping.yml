@@ -1,0 +1,15 @@
+name: Ping Endpoint
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"  # Cada 5 minutos (UTC)
+  workflow_dispatch:       # Opción para ejecutarlo manualmente
+
+jobs:
+  ping-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hacer ping al endpoint y mostrar la respuesta
+        run: |
+          echo "Enviando ping..."
+          curl -s "https://8df55953-3549-4848-85e7-853cfb0c2ab7-00-zcc0xm54xx5e.worf.replit.dev:5000/ping"
